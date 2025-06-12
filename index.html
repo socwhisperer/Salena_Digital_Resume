@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salena Weekly – Digital Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      background-color: #003060;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      position: sticky;
+      top: 80px;
+      z-index: 999;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
+      color: #004080;
+      margin-top: 40px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      font-size: 0.9em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 3px solid #004080;
+    }
+    .timeline-entry {
+      margin-bottom: 25px;
+    }
+    .chart {
+      margin-top: 10px;
+      height: 10px;
+      background: #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .chart span {
+      display: block;
+      height: 100%;
+      background: #004080;
+    }
+    .icon {
+      margin-right: 8px;
+      color: #004080;
+    }
+    #interactive-widget {
+      background: #f0f8ff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 10px;
+    }
+    #counter-value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Salena Weekly</h1>
+    <p>Digital Resume | Product Strategist | Procurement Innovator | SQL & Data-Driven Decision Maker</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#case-study">Case Study</a>
+    <a href="#thinking">Product Thinking</a>
+    <a href="#capitalone">Why Capital One</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Product-minded strategist with 10+ years of experience turning complex operational needs into user-centered, data-driven solutions. Known for leading cross-functional collaboration across legal, finance, and engineering to align strategy with stakeholder needs and simplify complex procurement and service delivery workflows.</p>
+    </section>
+
+    <section id="experience">
+      <h2><i class="fas fa-briefcase icon"></i>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-entry">
+          <h3>Contract Specialist – Product Management, DHS (2021–Present)</h3>
+          <ul>
+            <li>Led internal product strategy for procurement tools, reducing intake time by 30%.</li>
+            <li>Used SQL and discovery to test improvements—driving ~$15M in savings.</li>
+          </ul>
+        </div>
+        <div class="timeline-entry">
+          <h3>Client Experience Associate – Redfin (2020–2022)</h3>
+          <ul>
+            <li>Improved contract conversions by 22% using CRM and SQL-driven insights.</li>
+            <li>Streamlined workflows with inspectors and lenders—cutting cycle time by 8%.</li>
+          </ul>
+        </div>
+        <div class="timeline-entry">
+          <h3>Account Manager – Federal Strategy, Lumen (2018–2021)</h3>
+          <ul>
+            <li>Designed modular telecom bundles, reducing rework by 40%.</li>
+            <li>Built SQL-powered tracker to forecast implementation timelines.</li>
+          </ul>
+        </div>
+        <div class="timeline-entry">
+          <h3>Assistant Sales Manager – AT&T (2015–2018)</h3>
+          <ul>
+            <li>Increased close rates by 15% through funnel analysis and A/B testing.</li>
+            <li>Trained team using performance dashboards focused on KPIs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2><i class="fas fa-chart-bar icon"></i>Skills</h2>
+      <ul>
+        <li>Product Roadmap & Prioritization <div class="chart"><span style="width: 90%"></span></div></li>
+        <li>Experimentation & Hypothesis Testing <div class="chart"><span style="width: 85%"></span></div></li>
+        <li>SQL & Data Analysis <div class="chart"><span style="width: 80%"></span></div></li>
+        <li>Cross-functional Collaboration <div class="chart"><span style="width: 95%"></span></div></li>
+        <li>User Research & Journey Mapping <div class="chart"><span style="width: 85%"></span></div></li>
+        <li>Strategic Procurement & Contracting <div class="chart"><span style="width: 90%"></span></div></li>
+      </ul>
+    </section>
+
+    <section id="case-study">
+      <h2><i class="fas fa-folder-open icon"></i>Case Study: Procurement Process Optimization</h2>
+      <p>At DHS, I led the redesign of the procurement intake process. By identifying friction points with SQL and stakeholder interviews, I streamlined intake logic, embedded metrics, and established feedback loops with legal and engineering teams.</p>
+      <ul>
+        <li>Cut intake time by 30%</li>
+        <li>Achieved ~$15M in sourcing savings</li>
+        <li>Drove cross-functional alignment and tool adoption</li>
+      </ul>
+      <div id="interactive-widget">
+        <p><strong>Interactive Counter Demo:</strong></p>
+        <p>Steps Optimized: <span id="counter-value">0</span></p>
+        <button onclick="incrementCounter()">+ Improve Step</button>
+      </div>
+    </section>
+
+    <section id="thinking">
+      <h2><i class="fas fa-lightbulb icon"></i>Product Thinking</h2>
+      <ul>
+        <li><strong>Problem Framing:</strong> Identified friction in intake process via SQL and stakeholder feedback.</li>
+        <li><strong>Hypothesis Testing:</strong> Piloted two new flows; increased throughput by 18%.</li>
+        <li><strong>KPI Ownership:</strong> Intake time, vendor quality scores, internal satisfaction (cross-functional NPS).</li>
+      </ul>
+    </section>
+
+    <section id="capitalone">
+      <h2><i class="fas fa-heart icon"></i>Why Capital One?</h2>
+      <p>I admire Capital One’s bold approach to digital product design. My track record of simplifying complex systems, aligning policy with user needs, and making procurement more intuitive aligns well with Capital One's mission to reimagine financial tools that actually empower users. I don’t just translate complexity—I help people move through it smarter and faster.</p>
+    </section>
+
+    <section id="contact">
+      <h2><i class="fas fa-envelope icon"></i>Contact</h2>
+      <p>Email: pm.growthstrategist@gmail.com<br>
+      LinkedIn: linkedin.com/in/salena-weekly<br>
+      Resume: <a href="Product%20Manager%20Resume%20-%20Salena%20Weekly.pdf" download>Download PDF</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Salena Weekly</p>
+  </footer>
+
+  <script>
+    let counter = 0;
+    function incrementCounter() {
+      counter++;
+      document.getElementById('counter-value').innerText = counter;
+    }
+  </script>
+</body>
+</html>
