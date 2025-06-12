@@ -60,6 +60,9 @@
     section {
       margin-bottom: 50px;
     }
+    #thinking {
+      min-height: 300px;
+    }
     h2 {
       color: #004080;
       margin-top: 40px;
@@ -212,19 +215,13 @@
   </footer>
 
   <script>
-    let counter = 0;
-    function incrementCounter() {
-      counter++;
-      document.getElementById('counter-value').innerText = counter;
-    }
-
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll("nav a");
 
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 150;
         if (pageYOffset >= sectionTop) {
           current = section.getAttribute("id");
         }
