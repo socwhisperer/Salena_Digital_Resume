@@ -58,10 +58,10 @@
       padding: 0 20px;
     }
     section {
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
     #thinking {
-      min-height: 300px;
+      min-height: 600px;
     }
     h2 {
       color: #004080;
@@ -221,8 +221,9 @@
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (pageYOffset >= sectionTop) {
+        const sectionTop = section.offsetTop - 160;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
           current = section.getAttribute("id");
         }
       });
