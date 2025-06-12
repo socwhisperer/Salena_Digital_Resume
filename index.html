@@ -12,15 +12,13 @@
       padding: 0;
       background: #f9f9f9;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
       background-color: #004080;
       color: white;
       padding: 30px 20px;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
     nav {
       background-color: #003060;
@@ -29,21 +27,34 @@
       justify-content: center;
       gap: 20px;
       padding: 10px 0;
-      position: sticky;
-      top: 80px;
-      z-index: 999;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      position: relative;
+      padding: 5px 10px;
+    }
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 3px;
+      background-color: #fff;
     }
     nav a:hover {
       text-decoration: underline;
     }
     main {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 120px auto 40px;
       padding: 0 20px;
     }
     section {
@@ -97,15 +108,39 @@
       font-size: 24px;
       font-weight: bold;
     }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        padding: 8px 0;
+      }
+    }
+    .logo {
+      height: 20px;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+    .cta-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f0fe;
+      border-left: 5px solid #004080;
+    }
+    .cta-box a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #004080;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Salena Weekly</h1>
-    <p>Digital Resume | Product Strategist | Procurement Innovator | SQL & Data-Driven Decision Maker</p>
-  </header>
-
-  <nav>
+  <nav id="navbar">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
@@ -115,93 +150,57 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <header>
+    <h1>Salena Weekly</h1>
+    <p>Digital Resume | Product Strategist | Procurement Innovator | SQL & Data-Driven Decision Maker</p>
+  </header>
+
   <main>
     <section id="about">
       <h2>About Me</h2>
-      <p>Product-minded strategist with 10+ years of experience turning complex operational needs into user-centered, data-driven solutions. Known for leading cross-functional collaboration across legal, finance, and engineering to align strategy with stakeholder needs and simplify complex procurement and service delivery workflows.</p>
+      <p>Product-minded strategist with an MBA and 10+ years of experience turning complex operational needs into data-driven, user-centered solutions. I translate insights into action that aligns stakeholder goals, defines success metrics, and drives scalable outcomes across the product lifecycle. I'm driven to build products that simplify complexity, elevate customer experience, and deliver results stakeholders can see and users can feel.</p>
     </section>
 
     <section id="experience">
-      <h2><i class="fas fa-briefcase icon"></i>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-entry">
-          <h3>Contract Specialist – Product Management, DHS (2021–Present)</h3>
-          <ul>
-            <li>Led internal product strategy for procurement tools, reducing intake time by 30%.</li>
-            <li>Used SQL and discovery to test improvements—driving ~$15M in savings.</li>
-          </ul>
-        </div>
-        <div class="timeline-entry">
-          <h3>Client Experience Associate – Redfin (2020–2022)</h3>
-          <ul>
-            <li>Improved contract conversions by 22% using CRM and SQL-driven insights.</li>
-            <li>Streamlined workflows with inspectors and lenders—cutting cycle time by 8%.</li>
-          </ul>
-        </div>
-        <div class="timeline-entry">
-          <h3>Account Manager – Federal Strategy, Lumen (2018–2021)</h3>
-          <ul>
-            <li>Designed modular telecom bundles, reducing rework by 40%.</li>
-            <li>Built SQL-powered tracker to forecast implementation timelines.</li>
-          </ul>
-        </div>
-        <div class="timeline-entry">
-          <h3>Assistant Sales Manager – AT&T (2015–2018)</h3>
-          <ul>
-            <li>Increased close rates by 15% through funnel analysis and A/B testing.</li>
-            <li>Trained team using performance dashboards focused on KPIs.</li>
-          </ul>
-        </div>
-      </div>
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>DHS, Contract Specialist:</strong> Directed $95M+ in IT sourcing and led cross-functional initiatives that boosted vendor performance, compliance, and delivery accountability.</li>
+        <li><strong>CenturyLink, Federal Account Manager:</strong> Shaped federal telecom proposals using data-driven trends and user insights to improve win rates and delivery outcomes.</li>
+        <li><strong>AT&T, Assistant Store Manager:</strong> Drove 43% YoY profit growth and improved satisfaction scores from 79% to 93% through targeted strategy, coaching, and stakeholder alignment.</li>
+      </ul>
     </section>
 
     <section id="skills">
-      <h2><i class="fas fa-chart-bar icon"></i>Skills</h2>
+      <h2>Skills</h2>
       <ul>
-        <li>Product Roadmap & Prioritization <div class="chart"><span style="width: 90%"></span></div></li>
-        <li>Experimentation & Hypothesis Testing <div class="chart"><span style="width: 85%"></span></div></li>
-        <li>SQL & Data Analysis <div class="chart"><span style="width: 80%"></span></div></li>
-        <li>Cross-functional Collaboration <div class="chart"><span style="width: 95%"></span></div></li>
-        <li>User Research & Journey Mapping <div class="chart"><span style="width: 85%"></span></div></li>
-        <li>Strategic Procurement & Contracting <div class="chart"><span style="width: 90%"></span></div></li>
+        <li><span class="icon">💾</span> SQL & Data-Driven Analysis — leveraged across DHS, Lumen, and Redfin to drive procurement insights and customer conversions</li>
+        <li><span class="icon">📈</span> KPI Definition & Monitoring — embedded in product roadmaps, contract strategies, and performance dashboards</li>
+        <li><span class="icon">🧭</span> User-Centered Strategy — improved adoption and reduced rework across intake tools, onboarding flows, and product bundles</li>
+        <li><span class="icon">🤝</span> Cross-Functional Leadership — unified stakeholders across legal, finance, and engineering for execution clarity</li>
+        <li><span class="icon">🧠</span> Strategic Roadmapping & Storytelling — led product and solution frameworks adopted at DHS and Lumen</li>
+        <li><span class="icon">🔧</span> Operational Ownership — optimized post-award contracting, deal accuracy, and day-to-day product quality</li>
+        <li><span class="icon">🚀</span> Emerging Tech Fluency — experience with APIs, identity systems, and mobile-first initiatives</li>
       </ul>
     </section>
 
-    <section id="case-study">
-      <h2><i class="fas fa-folder-open icon"></i>Case Study: Procurement Process Optimization</h2>
-      <p>At DHS, I led the redesign of the procurement intake process. By identifying friction points with SQL and stakeholder interviews, I streamlined intake logic, embedded metrics, and established feedback loops with legal and engineering teams.</p>
+    <section id="case-study"><h2>Case Study</h2></section>
+    <section id="thinking"><h2>Product Thinking</h2></section>
+
+    <section id="capitalone">
+      <h2>Why Capital One <img class="logo" src="https://logos-world.net/wp-content/uploads/2021/02/Capital-One-Logo.png" alt="Capital One logo"></h2>
       <ul>
-        <li>Cut intake time by 30%</li>
-        <li>Achieved ~$15M in sourcing savings</li>
-        <li>Drove cross-functional alignment and tool adoption</li>
+        <li>🎯 <strong>Mission Alignment:</strong> I’ve spent the last decade translating complexity into clarity—exactly what Capital One's customer-first mission demands. From scaling IT procurement at DHS to building solutions that simplified buyer journeys at Redfin, I build systems that make financial decisions easier and smarter.</li>
+        <li>🚀 <strong>Product Culture Fit:</strong> I've led A/B tests, defined MVPs, and collaborated across design, engineering, and compliance. Whether launching intake tools at DHS or refining onboarding flows, I bring a builder's mindset and love for continuous iteration.</li>
+        <li>📊 <strong>Data-Driven Storytelling:</strong> I don’t just love data—I activate it. I’ve used SQL to identify $15M in sourcing savings and built dashboards that empowered stakeholders to act. I’d bring the same analytical clarity to product decisions at Capital One Shopping.</li>
       </ul>
-      <div id="interactive-widget">
-        <p><strong>Interactive Counter Demo:</strong></p>
-        <p>Steps Optimized: <span id="counter-value">0</span></p>
-        <button onclick="incrementCounter()">+ Improve Step</button>
+      <div class="cta-box">
+        <strong>Let’s build smarter products together.</strong><br>
+        If you're looking for a Product Manager who turns insights into impact—I'd love to connect.<br><br>
+        <a href="#contact">📬 Contact Me</a>
       </div>
     </section>
 
-    <section id="thinking">
-      <h2><i class="fas fa-lightbulb icon"></i>Product Thinking</h2>
-      <ul>
-        <li><strong>Problem Framing:</strong> Identified friction in intake process via SQL and stakeholder feedback.</li>
-        <li><strong>Hypothesis Testing:</strong> Piloted two new flows; increased throughput by 18%.</li>
-        <li><strong>KPI Ownership:</strong> Intake time, vendor quality scores, internal satisfaction (cross-functional NPS).</li>
-      </ul>
-    </section>
-
-    <section id="capitalone">
-      <h2><i class="fas fa-heart icon"></i>Why Capital One?</h2>
-      <p>I admire Capital One’s bold approach to digital product design. My track record of simplifying complex systems, aligning policy with user needs, and making procurement more intuitive aligns well with Capital One's mission to reimagine financial tools that actually empower users. I don’t just translate complexity—I help people move through it smarter and faster.</p>
-    </section>
-
-    <section id="contact">
-      <h2><i class="fas fa-envelope icon"></i>Contact</h2>
-      <p>Email: pm.growthstrategist@gmail.com<br>
-      LinkedIn: linkedin.com/in/salena-weekly<br>
-      Resume: <a href="Product%20Manager%20Resume%20-%20Salena%20Weekly.pdf" download>Download PDF</a></p>
-    </section>
+    <section id="contact"><h2>Contact</h2></section>
   </main>
 
   <footer>
@@ -214,6 +213,26 @@
       counter++;
       document.getElementById('counter-value').innerText = counter;
     }
+
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
